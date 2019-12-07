@@ -6,15 +6,28 @@
 
 <h1>Tasks</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<form asp-controller="TaskModels" asp-action="Index">
-    <p>
-        Search for a Task: <input type="text" name="SearchString">
-        <input type="submit" value="Filter" />
-    </p>
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p>
+                <a asp-action="Create">Create New</a>
+            </p>
+        </div>
+        <div class="col">
+            <form asp-controller="TaskModels" asp-action="Index">
+                <p>
+                    Search for a Task: <input type="text" name="SearchString">
+                    <input type="submit" value="Filter" />
+                </p>
+            </form>
+        </div>
+        <div class="col">
+            <p>
+                <a asp-action="Index">Clear Filters</a>
+            </p>
+        </div>
+    </div>
+</div>
 <table class="table">
     <thead>
         <tr>
