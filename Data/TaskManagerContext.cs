@@ -15,7 +15,7 @@ namespace TaskManager.Data
 
         }
 
-        // Will correspond to a row in the table
+        // Will correspond to the rows of the table
         public DbSet<TaskModel> Task { get; set; }
 
     }
