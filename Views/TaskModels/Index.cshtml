@@ -54,9 +54,9 @@
                     @Html.DisplayFor(modelItem => item.TaskDueDate)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id"> 
-                        <input type="checkbox" asp-for="@item.TaskCompleted"  /> 
-                    </a>
+                    <form asp-action="Edit" asp-route-id="@item.Id" asp-controller="TaskModels" method="post"> 
+                        <input type="checkbox" asp-for="@item.TaskCompleted, item"  /> 
+                    </form>
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
