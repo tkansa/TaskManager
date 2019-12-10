@@ -22,7 +22,7 @@ namespace TaskManager.Models
         public DateTime TaskDueDate { get; set; }
 
         // Indication as to whether the task is completed
-        [Display(Name = "Task Completed")]
+        [Display(Name = "Task Completed?")]
         public bool TaskCompleted { get; set; }
     }
 }

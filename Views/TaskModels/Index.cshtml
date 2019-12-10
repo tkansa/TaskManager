@@ -17,7 +17,7 @@
             <form asp-controller="TaskModels" asp-action="Index">
                 <p>
                     Search for a Task: <input type="text" name="SearchString">
-                    <input type="submit" value="Filter" class="btn btn-primary"/>
+                    <input type="submit" value="Filter" class="btn btn-primary" />
                 </p>
             </form>
         </div>
@@ -38,7 +38,7 @@
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" name="sortOrder">@Html.DisplayNameFor(model => model.TaskDueDate)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TaskCompleted)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["IncompleteTasksParm"]" name="sortOrder">@Html.DisplayNameFor(model => model.TaskCompleted)</a>
             </th>
             <th></th>
         </tr>
