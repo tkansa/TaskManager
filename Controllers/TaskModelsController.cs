@@ -31,7 +31,7 @@ namespace TaskManager.Controllers
             IQueryable<TaskModel> tasks = from t in _context.Task
                                             select t;
 
-            //sort the tasks by date if requested
+            //sort the tasks by date or completion status if requested
             switch (sortOrder)
             {
                 case "Date":
