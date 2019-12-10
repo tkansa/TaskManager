@@ -21,19 +21,34 @@ namespace TaskManager.Controllers
         }
 
         // GET: TaskModels
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, string sortOrder)
         {
+            // View Data is used by the view to configure the column heading hyperlinks with the appropriate query string values
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+
             // Get the tasks from the table
             IQueryable<TaskModel> tasks = from t in _context.Task
                                             select t;
+
+            //sort the tasks by date if requested
+            switch (sortOrder)
+            {
+                case "Date":
+                    tasks = tasks.OrderBy(t => t.TaskDueDate);
+                    break;
+                case "date_desc":
+                    tasks = tasks.OrderByDescending(t => t.TaskDueDate);
+                    break;
+            }
 
             // if a search string is included as a parameter when the Index method is called, filter for the search term
             if (!String.IsNullOrEmpty(searchString))
             {
                 tasks = tasks.Where(s => s.TaskDescription.Contains(searchString));
-            } 
+            }
 
-            return View(await tasks.ToListAsync());
+
+            return View(await tasks.AsNoTracking().ToListAsync());
         }
 
         // GET: TaskModels/Details/5

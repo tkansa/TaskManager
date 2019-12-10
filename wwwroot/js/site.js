@@ -5,11 +5,6 @@
 
 function toggleTaskCompletedCheckbox(id) {
     var checkBoxStatus = document.getElementById(id).checked;
-    
-    debugger;
- 
     var url = "/TaskModels/ToggleTaskCompletedCheckbox";
     $.get(url, { id: id, checkBoxStatus: checkBoxStatus });
-
-
 }
