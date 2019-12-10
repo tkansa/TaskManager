@@ -25,7 +25,7 @@ namespace TaskManager.Controllers
         {
             // View Data is used by the view to configure the column heading hyperlinks with the appropriate query string values
             ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
-            @ViewData["IncompleteTasksParm"] = String.IsNullOrEmpty(sortOrder) ? "incomplete" : "";
+            ViewData["IncompleteTasksParm"] = String.IsNullOrEmpty(sortOrder) ? "incomplete" : "";
 
             // Get the tasks from the table
             IQueryable<TaskModel> tasks = from t in _context.Task
